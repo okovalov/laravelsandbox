@@ -25,7 +25,11 @@ Route::get('/users', function()
     return View::make('users')->with('users', $users);
 });
 
+Route::get('login', function() {
+    return "Login page";
+});
+
 Route::get('/post', 'PostController@show');
 Route::get('/post/listing', array('uses' =>'PostController@listing', 'as' => 'get.post.listing'));
-Route::get('/post/{id}', array('uses' => 'PostController@single', 'as' => 'get.post.single'))->where('id', '[1-9][0-9]*');
+Route::get('/post/{id}', array('uses' => 'PostController@single', 'as' => 'get.post.single', 'before' => 'auth'))->where('id', '[1-9][0-9]*');
 Route::post('/post/{id}', array('uses' => 'PostController@update', 'as' => 'post.post.single'));
