@@ -13,10 +13,14 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+ 	return View::make('hello');
 });
+
+Route::get('/user/{id?}', array('uses' => 'HomeController@showUser'));
 
 Route::get('/users', function()
 {
-    return 'Users!';
+    $users = User::all();
+    
+    return View::make('users')->with('users', $users);
 });

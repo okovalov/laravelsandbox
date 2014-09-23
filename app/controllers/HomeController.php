@@ -20,4 +20,10 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
+	public function showUser($id = 333)
+	{
+	    $users = array('aaa', 'bbbb');
+		return View::make('hello')->with('id', $id);
+		//return View::make('users')->with('users', $users);
+	}
 }
