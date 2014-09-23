@@ -30,6 +30,9 @@ Route::get('login', function() {
 });
 
 Route::get('/post', 'PostController@show');
-Route::get('/post/listing', array('uses' =>'PostController@listing', 'as' => 'get.post.listing'));
-Route::get('/post/{id}', array('uses' => 'PostController@single', 'as' => 'get.post.single', 'before' => 'auth'))->where('id', '[1-9][0-9]*');
-Route::post('/post/{id}', array('uses' => 'PostController@update', 'as' => 'post.post.single'));
+
+Route::group(array('before' => 'auth'), function() {
+   Route::get('/post/listing', array('uses' =>'PostController@listing', 'as' => 'get.post.listing')); 
+   Route::get('/post/{id}', array('uses' => 'PostController@single', 'as' => 'get.post.single'))->where('id', '[1-9][0-9]*');
+   Route::post('/post/{id}', array('uses' => 'PostController@update', 'as' => 'post.post.single'));
+});
