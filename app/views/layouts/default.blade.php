@@ -1,5 +1,7 @@
 <htmL>
 <body>
+    @include('partials.menu')
+    
     @yield('content')
     
     @section('sidebar')
