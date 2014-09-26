@@ -53,7 +53,11 @@ class UserController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+	    $user = new StdClass;
+	    $user->email = "user@gmail.com";
+	    $user->password = Hash::make("MySecret");
+	    
+		return View::make('user.show', compact('user'));
 	}
 
 
