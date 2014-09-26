@@ -16,7 +16,7 @@ Route::get('/', function()
  	return View::make('hello');
 });
 
-Route::get('/user/{id?}', 'HomeController@showUser');
+//Route::get('/user/{id?}', 'HomeController@showUser');
 
 Route::get('/users', function()
 {
@@ -34,6 +34,6 @@ Route::get('/post/listing', array('uses' =>'PostController@listing', 'as' => 'ge
 Route::get('/post/{id}', array('uses' => 'PostController@single', 'as' => 'get.post.single'))->where('id', '[1-9][0-9]*');
 Route::post('/post/{id}', array('uses' => 'PostController@update', 'as' => 'post.post.single'));
 
-// Route::resource('user', 'UserController');
+Route::resource('user', 'UserController');
 // Route::resource('user', 'UserController', array('except' => array('show', 'edit')));
-Route::resource('user', 'UserController', array('only' => array('show', 'edit')));
+//Route::resource('user', 'UserController', array('only' => array('show', 'edit')));

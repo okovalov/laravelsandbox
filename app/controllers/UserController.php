@@ -9,7 +9,17 @@ class UserController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$users = array();
+		
+		for ($i = 1; $i <= 4; $i++) {
+		    $user = new StdClass;
+		    $user->email = "user{$i}@gmail.com";
+		    $user->password = Hash::make("MySecret{$i}");
+		    
+		    $users[] = $user;
+		}
+		
+		return View::make('user.index', compact('users'));
 	}
 
 
