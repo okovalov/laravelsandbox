@@ -8,3 +8,11 @@
     @endif
 @stop
 
+@section('sidebar')
+    @parent
+    <a href="#">Some link</a>
+    @parent
+    <a href="#">Some link</a>
+    <a href="#">Some link</a>
+    <a href="#">Some link</a>
+@stop
