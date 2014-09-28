@@ -18,6 +18,22 @@ class PostController extends BaseController {
 		return View::make('post.listing', compact('posts'));
 	}
 	
+	public function insert() {
+	
+	   // $post = new Post;
+	    
+	   // $post->title = "A title from POST";
+	   // $post->body = "A body from POST";
+	    
+	   // $post->save();
+	   
+	   $data = array('title' => "A title from POST using array", 'body' => "A body from POST using array", 'user_id' => 2);
+	   
+	   Post::create($data);
+	    
+	   dd('Post saved');
+	}
+	
 	public function single($id) {
 	    $post = Post::find($id);
 	    

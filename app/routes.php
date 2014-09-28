@@ -33,6 +33,7 @@ Route::get('/post', 'PostController@show');
 Route::get('/post/listing', array('uses' =>'PostController@listing', 'as' => 'get.post.listing')); 
 Route::get('/post/{id}', array('uses' => 'PostController@single', 'as' => 'get.post.single'))->where('id', '[1-9][0-9]*');
 Route::post('/post/{id}', array('uses' => 'PostController@update', 'as' => 'post.post.single'));
+Route::get('/post/insert', array('uses' => 'PostController@insert', 'as' => 'get.post.insert'));
 
 Route::resource('user', 'UserController');
 // Route::resource('user', 'UserController', array('except' => array('show', 'edit')));
