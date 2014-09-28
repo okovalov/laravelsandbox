@@ -21,6 +21,7 @@ class UserController extends \BaseController {
 // 		DB::table('users')->insert($data);
 
 		DB::table('users')->where('id', 5)->update($data);
+		DB::table('users')->where('id', 5)->delete();
 		
 		return View::make('user.index', compact('users'));
 	}
