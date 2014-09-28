@@ -12,8 +12,9 @@ class UserController extends \BaseController {
 // 		$users = DB::table('users')->get();
         // dd(DB::table('users')->lists('email'));
         // $users = DB::table('users')->where('id', 2)->orWhere('email', 'joe@doe.com')->get();
-        $users = DB::table('users')->where('id', '>', 1)->orderBy('email', 'desc')->take(2)->skip(0)->get();
-        dd(DB::getQueryLog());
+        // $users = DB::table('users')->where('id', '>', 1)->orderBy('email', 'desc')->take(2)->skip(0)->get();
+        $users = DB::table('users')->join('posts', 'users.id', '=', 'posts.user_id')->get();
+        // dd(DB::getQueryLog());
 		
 		return View::make('user.index', compact('users'));
 	}
