@@ -16,9 +16,11 @@ class UserController extends \BaseController {
         $users = DB::table('users')->join('posts', 'users.id', '=', 'posts.user_id')->get();
         // dd(DB::getQueryLog());
 		
-		$data = array('email' => 'new@doe.com', 'name' => 'New User');
+		$data = array('email' => 'new_updated@doe.com', 'name' => 'New User');
 		
-		DB::table('users')->insert($data);
+// 		DB::table('users')->insert($data);
+
+		DB::table('users')->where('id', 5)->update($data);
 		
 		return View::make('user.index', compact('users'));
 	}
