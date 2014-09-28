@@ -9,15 +9,11 @@ class UserController extends \BaseController {
 	 */
 	public function index()
 	{
-		$users = array();
-		
-		for ($i = 1; $i <= 4; $i++) {
-		    $user = new StdClass;
-		    $user->email = "user{$i}@gmail.com";
-		    $user->password = Hash::make("MySecret{$i}");
-		    
-		    $users[] = $user;
-		}
+// 		$users = DB::table('users')->get();
+        // dd(DB::table('users')->lists('email'));
+        // $users = DB::table('users')->where('id', 2)->orWhere('email', 'joe@doe.com')->get();
+        $users = DB::table('users')->where('id', '>', 1)->orderBy('email', 'desc')->take(2)->skip(0)->get();
+        dd(DB::getQueryLog());
 		
 		return View::make('user.index', compact('users'));
 	}
@@ -53,9 +49,14 @@ class UserController extends \BaseController {
 	 */
 	public function show($id)
 	{
-	    $user = new StdClass;
-	    $user->email = "user@gmail.com";
-	    $user->password = Hash::make("MySecret");
+	    // $user = DB::table('users')->find($id);
+	    $user = DB::table('users')->where('id', $id)->first();
+	   // $user = DB::table('users')->where('id', $id)->where('email', 'joe@doe.com')->first();
+	    
+	   // $user = DB::table('users')->where(array('id' => $id, 'email' => 'joe@doe.com'))->first();
+	   
+	   
+	   // dd(DB::getQueryLog());
 	    
 		return View::make('user.show', compact('user'));
 	}
