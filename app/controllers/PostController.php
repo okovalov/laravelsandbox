@@ -41,6 +41,21 @@ class PostController extends BaseController {
 	}
 	
 	public function update($id) {
-	    dd($_POST);
+	    $post = Post::find($id);
+	    
+	    $post->user_id = 1;
+	    
+	    $post->save();
+	    
+	    dd('Post has been updated');
+	    
 	}	
+	
+	public function destroy($id) {
+	    $post = Post::find($id);
+	    
+	    $post->delete();
+	    
+	    dd('Post has been deleted');
+	}
 }
