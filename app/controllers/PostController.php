@@ -11,7 +11,9 @@ class PostController extends BaseController {
 	}
 	
 	public function listing() {
-		return View::make('post.listing');
+	    $posts = Post::all();
+	    
+		return View::make('post.listing', compact('posts'));
 	}
 	
 	public function single($id) {
