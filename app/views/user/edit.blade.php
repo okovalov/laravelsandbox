@@ -2,7 +2,7 @@
 
 @section('content')
 
-    {{ Form::open(array('route' => array('user.update', $user->id), 'method' => 'PUT', 'class' => 'form' )) }}
+    {{ Form::model($user, array('route' => array('user.update', $user->id), 'method' => 'PUT', 'class' => 'form' )) }}
     
         <li>
             {{ Form::label('email', 'Your email' ) }} 
@@ -10,7 +10,7 @@
         </li>
         <li>
             {{ Form::label('password', 'Your password' ) }} 
-            {{ Form::email('password') }}
+            {{ Form::password('password') }}
         </li>
         <li>
             {{ Form::label('permission', 'Your permission' ) }} 

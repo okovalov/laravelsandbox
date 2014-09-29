@@ -93,7 +93,7 @@ class UserController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		dd(Input::all());
 	}
 
 
