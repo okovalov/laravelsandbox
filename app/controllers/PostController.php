@@ -11,9 +11,9 @@ class PostController extends BaseController {
 	}
 	
 	public function listing() {
-	    // $posts = Post::all();
+	     $posts = Post::all();
 	    // $posts = Post::where('title', 'LIKE', '%2%')->get();
-	    $posts = Post::where('title', 'LIKE', '%2%')->take(2)->skip(1)->get();
+	    //$posts = Post::where('title', 'LIKE', '%2%')->take(2)->skip(1)->get();
 	    
 		return View::make('post.listing', compact('posts'));
 	}

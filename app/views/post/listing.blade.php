@@ -3,7 +3,7 @@
 @section('content')
     @if(count($posts))
         @foreach ($posts as $post)
-            <p><strong>{{{ $post->title}}}</strong></p>
+            <p><strong>{{{ $post->title}}}</strong> by {{{ $post->user->email }}}</p>
         @endforeach
     @endif
 @stop

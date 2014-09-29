@@ -58,11 +58,12 @@ class UserController extends \BaseController {
 	public function show($id)
 	{
 	    // $user = DB::table('users')->find($id);
-	    $user = DB::table('users')->where('id', $id)->first();
+	    //$user = DB::table('users')->where('id', $id)->first();
 	   // $user = DB::table('users')->where('id', $id)->where('email', 'joe@doe.com')->first();
 	    
 	   // $user = DB::table('users')->where(array('id' => $id, 'email' => 'joe@doe.com'))->first();
 	   
+	   $user = User::find($id);
 	   
 	   // dd(DB::getQueryLog());
 	    
