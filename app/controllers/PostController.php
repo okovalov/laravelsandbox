@@ -11,7 +11,7 @@ class PostController extends BaseController {
 	}
 	
 	public function listing() {
-	     $posts = Post::all();
+	     $posts = Post::with('user')->get();
 	    // $posts = Post::where('title', 'LIKE', '%2%')->get();
 	    //$posts = Post::where('title', 'LIKE', '%2%')->take(2)->skip(1)->get();
 	    
