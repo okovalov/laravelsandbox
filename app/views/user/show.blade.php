@@ -8,6 +8,15 @@
         <li>{{{ $post->title }}} </li>
     @endforeach
     </ul>
+
+    <p>Categories:</p>
+    <ul>    
+    @foreach($user->categories as $categorie)
+        <li>{{{ $categorie->name }}} </li>
+    @endforeach
+    </ul>
+
+    
 @stop
 
 @section('sidebar')
