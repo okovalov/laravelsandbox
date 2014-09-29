@@ -63,7 +63,7 @@ class UserController extends \BaseController {
 	    
 	   // $user = DB::table('users')->where(array('id' => $id, 'email' => 'joe@doe.com'))->first();
 	   
-	   $user = User::find($id);
+	   $user = User::with('categories')->find($id);
 	   
 	   // dd(DB::getQueryLog());
 	    
